@@ -41,6 +41,7 @@ function player:getCorners(x, y)
 end
 
 function player:handleKeys()
+	--[[
 	if love.keyboard.isDown("w") then
 		player:getCorners(player.x, player.y - player.speed)
 		
@@ -60,6 +61,7 @@ function player:handleKeys()
 			player.y = (player.y / tile.height) * tile.height
 		end
 	end
+	]]--
 	
 	if love.keyboard.isDown("a") then
 		player:getCorners(player.x - player.speed, player.y)
