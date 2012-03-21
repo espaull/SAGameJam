@@ -78,11 +78,6 @@ function player:handleKeys()
 		else
 			player.x = (player.x / tile.width) * tile.width
 		end
-		
-		if player.bottomLeft and player.bottomRight then
-			--Oh my god we're falling
-			player.onGround = false
-		end
 	end
 	
 	if love.keyboard.isDown("d") then
@@ -92,11 +87,6 @@ function player:handleKeys()
 			player.x = player.x + player.speed
 		else
 			player.x = (player.x / tile.width) * tile.width
-		end
-		
-		if player.bottomLeft and player.bottomRight then
-			--Oh my god we're falling
-			player.onGround = false
 		end
 	end
 	
