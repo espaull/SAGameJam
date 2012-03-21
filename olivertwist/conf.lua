@@ -1,0 +1,9 @@
+function love.conf(t)
+	t.title = "it's oliver twist ok"
+	
+	t.screen.width = 880
+	t.screen.height = 600
+	
+	t.modules.physics = false
+	t.modules.joystick = false
+end
