@@ -33,6 +33,7 @@ end
 function player:update(dt)
 	player:handleKeys()
 	player:applyGravity()
+	player:checkFalling()
 end
 
 function player:getCorners(x, y)
@@ -93,7 +94,7 @@ function player:handleKeys()
 	if love.keyboard.isDown(" ") then
 		if player.onGround == true then
 			player.yVel = player.jumpSpeed
-			player.onGround = false
+			--player.onGround = false
 		end
 	end
 end
@@ -122,6 +123,16 @@ function player:applyGravity()
 		player.y = player.y + player.yVel
 	else
 		player.y = math.ceil(player.y / tile.height) * tile.height - player.height / 2
+		--player.onGround = true
+	end
+end
+
+function player:checkFalling()
+	player:getCorners(player.x, player.y + player.speed)
+	
+	if player.bottomLeft and player.bottomRight then
+		player.onGround = false
+	else
 		player.onGround = true
 	end
 end
