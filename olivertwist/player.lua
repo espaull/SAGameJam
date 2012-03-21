@@ -11,7 +11,7 @@ function player:load(x, y)
 	player.width = 20
 	player.height = 20
 	
-	player.speed = 2
+	player.speed = 5
 end
 
 function player:draw()
