@@ -14,6 +14,8 @@ function love.draw()
 	
 	--Debug info.
 	love.graphics.print("FPS: "..love.timer.getFPS(), 2, 2)
+	love.graphics.print("yVel: "..player.yVel, 2, 17)
+	love.graphics.print("onGround: "..tostring(player.onGround), 2, 32)
 end
 
 function love.update(dt)
