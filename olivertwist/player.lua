@@ -76,7 +76,7 @@ function player:handleKeys()
 		if player.upLeft and player.bottomLeft then
 			player.x = player.x - player.speed
 		else
-			player.x = math.floor(player.x / tile.width) * tile.width + player.width / 2
+			player.x =(player.x / tile.width) * tile.width
 		end
 	end
 	
@@ -86,7 +86,7 @@ function player:handleKeys()
 		if player.upRight and player.bottomRight then
 			player.x = player.x + player.speed
 		else
-			player.x = math.ceil(player.x / tile.width) * tile.width - player.width / 2
+			player.x = (player.x / tile.width) * tile.width
 		end
 	end
 	
@@ -103,6 +103,17 @@ function player:applyGravity()
 	
 	if player.yVel > 10 then
 		player.yVel = 10
+	end
+	
+	if player.yVel < 0 then
+		player:getCorners(player.x, player.y + player.yVel)
+		
+		if player.upLeft and player.upRight then
+			--Whatever
+		else
+			player.y = math.floor(player.y / tile.height) * tile.height + player.height / 2
+			player.yVel = 0
+		end
 	end
 	
 	player:getCorners(player.x, player.y + player.yVel)
