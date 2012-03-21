@@ -14,7 +14,7 @@ function player:load(x, y)
 	player.speed = 3
 	
 	player.yVel = 0
-	player.jumpSpeed = -13
+	player.jumpSpeed = -14
 	player.gravity = 1
 	
 	player.onGround = false
@@ -76,7 +76,7 @@ function player:handleKeys()
 		if player.upLeft and player.bottomLeft then
 			player.x = player.x - player.speed
 		else
-			player.x = (player.x / tile.width) * tile.width
+			player.x = math.floor(player.x / tile.width) * tile.width + player.width / 2
 		end
 	end
 	
@@ -86,21 +86,14 @@ function player:handleKeys()
 		if player.upRight and player.bottomRight then
 			player.x = player.x + player.speed
 		else
-			player.x = (player.x / tile.width) * tile.width
+			player.x = math.ceil(player.x / tile.width) * tile.width - player.width / 2
 		end
 	end
 	
 	if love.keyboard.isDown(" ") then
 		if player.onGround == true then
-			player:getCorners(player.x, player.y + player.jumpSpeed)
-			
-			if player.upLeft and player.upRight then
-				player.yVel = player.jumpSpeed
-				player.onGround = false
-			else
-				player.y = (player.y / tile.height) * tile.height
-				player.yVel = 0
-			end
+			player.yVel = player.jumpSpeed
+			player.onGround = false
 		end
 	end
 end
@@ -117,7 +110,7 @@ function player:applyGravity()
 	if player.bottomLeft and player.bottomRight then
 		player.y = player.y + player.yVel
 	else
-		player.y = (player.y / tile.height) * tile.height
+		player.y = math.ceil(player.y / tile.height) * tile.height - player.height / 2
 		player.onGround = true
 	end
 end
