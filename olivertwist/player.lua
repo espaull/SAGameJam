@@ -77,7 +77,11 @@ function player:handleKeys()
 		if player.upLeft and player.bottomLeft then
 			player.x = player.x - player.speed
 		else
-			player.x = math.floor(player.x / tile.width) * tile.width + (player.width / 2) + 1
+			player.x = (player.x / tile.width) * tile.width
+		end
+		
+		if player.x <= 0 then
+			player.x = player.x + player.width / 2
 		end
 	end
 	
@@ -87,7 +91,7 @@ function player:handleKeys()
 		if player.upRight and player.bottomRight then
 			player.x = player.x + player.speed
 		else
-			player.x = math.ceil(player.x / tile.width) * tile.width - player.width  / 2
+			player.x = (player.x / tile.width) * tile.width
 		end
 	end
 	
