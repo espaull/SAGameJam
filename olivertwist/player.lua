@@ -134,5 +134,6 @@ function player:checkFalling()
 		player.onGround = false
 	else
 		player.onGround = true
+		player.yVel = 0
 	end
 end
