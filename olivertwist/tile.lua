@@ -1,8 +1,8 @@
 tile = {}
 
 function tile:load()
-	tile.width = 40
-	tile.height = 40
+	tile.width = 32
+	tile.height = 32
 	
 	for i = 0, 3 do
 		tile[i] = {}

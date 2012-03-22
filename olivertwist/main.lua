@@ -6,6 +6,8 @@ function love.load()
 	tile:load()
 	map:load()
 	player:load(60, 60)
+	
+	love.graphics.setBackgroundColor(71, 174, 255)
 end
 
 function love.draw()
@@ -14,8 +16,6 @@ function love.draw()
 	
 	--Debug info.
 	love.graphics.print("FPS: "..love.timer.getFPS(), 2, 2)
-	love.graphics.print("yVel: "..player.yVel, 2, 17)
-	love.graphics.print("onGround: "..tostring(player.onGround), 2, 32)
 end
 
 function love.update(dt)
