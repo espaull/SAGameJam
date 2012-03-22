@@ -77,7 +77,7 @@ function player:handleKeys()
 		if player.upLeft and player.bottomLeft then
 			player.x = player.x - player.speed
 		else
-			player.x =(player.x / tile.width) * tile.width
+			player.x = math.floor(player.x / tile.width) * tile.width + (player.width / 2) + 1
 		end
 	end
 	
@@ -87,7 +87,7 @@ function player:handleKeys()
 		if player.upRight and player.bottomRight then
 			player.x = player.x + player.speed
 		else
-			player.x = (player.x / tile.width) * tile.width
+			player.x = math.ceil(player.x / tile.width) * tile.width - player.width  / 2
 		end
 	end
 	
@@ -96,6 +96,11 @@ function player:handleKeys()
 			player.yVel = player.jumpSpeed
 			--player.onGround = false
 		end
+	end
+	
+	if love.keyboard.isDown("f") then
+		player.x = 50
+		player.y = 600
 	end
 end
 
