@@ -11,6 +11,9 @@ function player:load(x, y)
 	player.width = 20
 	player.height = 20
 	
+	player.xSpawn = 50
+	player.ySpawn = 600
+	
 	player.speed = 3
 	
 	player.yVel = 0
@@ -100,8 +103,8 @@ function player:handleKeys()
 	end
 	
 	if love.keyboard.isDown("f") then
-		player.x = 50
-		player.y = 600
+		player.x = player.xSpawn
+		player.y = player.ySpawn
 	end
 end
 
@@ -141,5 +144,12 @@ function player:checkFalling()
 	else
 		player.onGround = true
 		player.yVel = 0
+	end
+end
+
+function love.mousepressed(x, y, button)
+	if button == "l" then
+		player.xSpawn = x
+		player.ySpawn = y
 	end
 end
