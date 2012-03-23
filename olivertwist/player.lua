@@ -48,29 +48,7 @@ function player:getCorners(x, y)
 	player.bottomRight = tile[map.level1[player.bottomY][player.rightX]].walkable
 end
 
-function player:handleKeys()
-	--[[
-	if love.keyboard.isDown("w") then
-		player:getCorners(player.x, player.y - player.speed)
-		
-		if player.upLeft and player.upRight then
-			player.y = player.y - player.speed
-		else
-			player.y = (player.y / tile.height) * tile.height
-		end
-	end
-	
-	if love.keyboard.isDown("s") then
-		player:getCorners(player.x, player.y + player.speed)
-		
-		if player.bottomLeft and player.bottomRight then
-			player.y = player.y + player.speed
-		else
-			player.y = (player.y / tile.height) * tile.height
-		end
-	end
-	]]--
-	
+function player:handleKeys()	
 	if love.keyboard.isDown("a") then
 		player:getCorners(player.x - player.speed, player.y)
 		
