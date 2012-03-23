@@ -42,10 +42,29 @@ function player:getCorners(x, y)
 	player.leftX = math.ceil((x - (player.width / 2)) / tile.width)
 	player.rightX = math.ceil((x + (player.width / 2)) / tile.width)
 	
-	player.upLeft = tile[map.level1[player.upY][player.leftX]].walkable
-	player.upRight = tile[map.level1[player.upY][player.rightX]].walkable
-	player.bottomLeft = tile[map.level1[player.bottomY][player.leftX]].walkable
-	player.bottomRight = tile[map.level1[player.bottomY][player.rightX]].walkable
+	if tile[map.level1[player.upY][player.leftX]] ~= nil then
+		player.upLeft = tile[map.level1[player.upY][player.leftX]].walkable
+	else
+		player.upLeft = false --We're out of bounds.
+	end
+	
+	if tile[map.level1[player.upY][player.rightX]] ~= nil then
+		player.upRight = tile[map.level1[player.upY][player.rightX]].walkable
+	else
+		player.upRight = false
+	end
+	
+	if tile[map.level1[player.bottomY][player.leftX]] ~= nil then
+		player.bottomLeft = tile[map.level1[player.bottomY][player.leftX]].walkable
+	else
+		player.bottomLeft = false
+	end
+	
+	if tile[map.level1[player.bottomY][player.rightX]] ~= nil then
+		player.bottomRight = tile[map.level1[player.bottomY][player.rightX]].walkable
+	else
+		player.bottomRight = false
+	end
 end
 
 function player:handleKeys()	

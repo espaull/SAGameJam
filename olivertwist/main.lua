@@ -5,7 +5,7 @@ require "player"
 function love.load()
 	tile:load()
 	map:load()
-	player:load(60, 60)
+	player:load(50, 600)
 	
 	love.graphics.setBackgroundColor(71, 174, 255)
 end
