@@ -68,6 +68,8 @@ function player:getCorners(x, y)
 	else
 		player.bottomRight = false
 	end
+	
+	--FIX THIS. Going out of bounds at the top and bottom of the map still crashes the game!
 end
 
 function player:handleKeys()	

@@ -2,8 +2,6 @@ require "tile"
 
 map = {}
 
---Pooooooooooooop
-
 function map:load()
 	map.level1 = {
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
